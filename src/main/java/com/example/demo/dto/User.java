@@ -11,6 +11,7 @@ public class User {
     private String Uid;
     private String locatex;
     private String locatey;
+    private String busStop;
 
     @Override
     public String toString() {
@@ -18,6 +19,7 @@ public class User {
                 "Uid='" + Uid + '\'' +
                 ", locatex='" + locatex + '\'' +
                 ", locatey='" + locatey + '\'' +
+                ", busStop='" + busStop + '\'' +
                 '}';
     }
 }
