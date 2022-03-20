@@ -1,0 +1,14 @@
+data:
+  url:
+    stationInfo:
+      bygps: http://apis.data.go.kr/1613000/BusSttnInfoInqireService/getCrdntPrxmtSttnList
+    routeInfo:
+      bybusno: http://apis.data.go.kr/1613000/BusRouteInfoInqireService/getRouteNoList
+      stationlist: http://apis.data.go.kr/1613000/BusRouteInfoInqireService/getRouteAcctoThrghSttnList
+    arriveInfo:
+     staionwithbusno: http://apis.data.go.kr/1613000/ArvlInfoInqireService/getSttnAcctoSpcifyRouteBusArvlPrearngeInfoList
+    locationInfo:
+      buslocation: http://apis.data.go.kr/1613000/BusLcInfoInqireService/getRouteAcctoBusLcList
+  serviceKey: OSsqksel6JSVbZDK%2BDpRzUJMPzeHMRUOrqysyrIxSOfyQSYEv82iDk%2Be72rzXSRHcJZ34UBYb4xAEL75bpzFEw%3D%3D
+
+
