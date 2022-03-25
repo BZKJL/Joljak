@@ -1,15 +1,14 @@
 package com.example.demo.service;
 
-import com.example.demo.dto.GPSCoordinateReq;
 import kong.unirest.HttpResponse;
 import kong.unirest.JsonNode;
 import kong.unirest.Unirest;
 import org.junit.jupiter.api.Test;
-import org.springframework.http.MediaType;
-import org.springframework.http.RequestEntity;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
+
+import java.net.URI;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -39,5 +38,31 @@ class ExternalAPIServiceTest {
                 .asJson();
 
         assertThat(response.getStatus()).isEqualTo(200);
+    }
+
+    @Test
+    void name3() {
+        String API_SERVICE_KEY = "OSsqksel6JSVbZDK%2BDpRzUJMPzeHMRUOrqysyrIxSOfyQSYEv82iDk%2Be72rzXSRHcJZ34UBYb4xAEL75bpzFEw%3D%3D";
+        String GET_STATION_BY_GPS = "http://apis.data.go.kr";
+        String PATH ="/1613000/BusSttnInfoInqireService/getCrdntPrxmtSttnList";
+
+        URI uri = UriComponentsBuilder
+                .fromHttpUrl(GET_STATION_BY_GPS+PATH)
+                .queryParam("serviceKey",API_SERVICE_KEY)
+                .queryParam("numOfRows",10)
+                .queryParam("pageNo",1)
+                .queryParam("gpsLati",36.3)
+                .queryParam("gpsLong",127.3)
+                .queryParam("_type","json")
+                .build(true)
+                .toUri();
+
+        System.out.println(uri.toString());
+
+        RestTemplate restTemplate = new RestTemplate();
+        ResponseEntity<String> result = restTemplate.getForEntity(uri,String.class);
+
+        System.out.println(result.getStatusCode());
+        System.out.println(result.getBody());
     }
 }
